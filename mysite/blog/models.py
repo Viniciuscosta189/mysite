@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class Curso(models.Model):
     nome = models.CharField(max_length=200)
@@ -16,6 +17,7 @@ class Aluno(models.Model):
 
     def __str__(self):
         return self.nome
+
 class Post(models.Model):
     titulo = models.CharField(max_length=200)
     conteudo = models.TextField()
@@ -24,5 +26,10 @@ class Post(models.Model):
     
     def __str__(self):
         return self.titulo
+
+def current_datetime(request):
+    now = datetime.datetime.now()
+    html = '<html lang="en"><body>It is now %s.</body></html>' % now
+    return HttpResponse(html)
 
 # Create your models here.

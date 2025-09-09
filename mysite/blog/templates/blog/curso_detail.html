@@ -1,0 +1,15 @@
+<h1>{{ curso.nome }}</h1>
+<p>{{ curso.descricao }}</p>
+<p>Carga horária: {{ curso.carga_horaria }}h</p>
+
+<h2>Alunos matriculados</h2>
+<ul>
+  {% for aluno in alunos %}
+    <li>{{ aluno.nome }} - {{ aluno.email }}</li>
+  {% empty %}
+    <li>Não há alunos matriculados.</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'curso_list' %}">Voltar para lista de cursos</a>
+
